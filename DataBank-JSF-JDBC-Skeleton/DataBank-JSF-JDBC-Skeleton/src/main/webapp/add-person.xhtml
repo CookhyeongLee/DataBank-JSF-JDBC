@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  >
+  <!-- View that adds new Person -->
+
+  <h:head>
+    <!-- title of tab/window in browser -->
+    <title>#{uiconsts['addButtonLabel']}</title>
+  </h:head>
+  <h:body>
+    <h2>#{uiconsts['addButtonLabel']}</h2>
+    <br />
+    <h:form>
+    <h:panelGrid columns="2">
+    <h:outputText value="#{uiconsts['columnLabel_FirstName']}"/>
+    <h:inputText id="firstName" value="#{newPerson.firstName}"/>
+    <h:outputText value="#{uiconsts['columnLabel_LastName']}"/>
+    <h:inputText id="lastName" value="#{newPerson.lastName}"/>
+    <h:outputText value="#{uiconsts['columnLabel_Email']}"/>
+    <h:inputText id="email" value="#{newPerson.email}"/>
+    <h:outputText value="#{uiconsts['columnLabel_PhoneNumber']}"/>
+    <h:inputText id="phoneNumber" value="#{newPerson.phoneNumber}"/>
+    <h:outputText value="#{uiconsts['columnLabel_City']}"/>
+    <h:inputText id="city" value="#{newPerson.city}"/>
+	<f:facet name="footer">
+    <h:commandButton value="#{uiconsts['submitButtonLabel']}" action="#{personController.submitPerson(newPerson)}" />
+    </f:facet>
+    </h:panelGrid>
+    </h:form>
+    <h:outputLink value="list-people.xhtml">#{uiconsts['cancelButtonLabel']}</h:outputLink>
+  </h:body>
+</html>
